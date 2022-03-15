@@ -1,0 +1,15 @@
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.AssemblyInfo.cs
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\bin\Debug\net6.0\CSharpChallenges.exe
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\bin\Debug\net6.0\CSharpChallenges.deps.json
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\bin\Debug\net6.0\CSharpChallenges.runtimeconfig.json
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\bin\Debug\net6.0\CSharpChallenges.dll
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\bin\Debug\net6.0\CSharpChallenges.pdb
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.dll
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\refint\CSharpChallenges.dll
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.pdb
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\CSharpChallenges.genruntimeconfig.cache
+C:\Revature20220307\KevinL\wk-2\CSharpChallenges\CSharpChallenges\obj\Debug\net6.0\ref\CSharpChallenges.dll
