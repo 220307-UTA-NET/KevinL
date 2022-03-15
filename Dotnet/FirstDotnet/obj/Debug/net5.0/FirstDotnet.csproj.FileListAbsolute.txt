@@ -1,0 +1,16 @@
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.exe
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.deps.json
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.runtimeconfig.json
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.runtimeconfig.dev.json
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.dll
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\bin\Debug\net5.0\FirstDotnet.pdb
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.AssemblyInfo.cs
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.dll
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\refint\FirstDotnet.dll
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.pdb
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\FirstDotnet.genruntimeconfig.cache
+C:\Revature20220307\KevinL\Dotnet\FirstDotNet\obj\Debug\net5.0\ref\FirstDotnet.dll

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "N1Xn9Ap0hji3kgvs83MX9/Od8PAOxJww5s7eaWLF9xLKsbGte5TXWb16gHYNn9TGekU/9MF4/6WZybl1S7vYFQ==",
+  "success": true,
+  "projectFilePath": "C:\\Revature20220307\\KevinL\\Dotnet\\FirstDotNet\\FirstDotnet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\klee5\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\klee5\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\klee5\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\klee5\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,12 +1,4 @@
-﻿using System;
+string variable = "My name is Kevin Lee";
 
-namespace FirstDotnet
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+Console.WriteLine("Hello, World!");
+Console.WriteLine(variable);
