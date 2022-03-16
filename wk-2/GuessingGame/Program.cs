@@ -11,6 +11,16 @@ namespace GuessingGame
 				while( true ) //Being the Loop!
 				{
 
+					/*string? one;
+					string? two;
+
+					one = Console.ReadLine();
+					two = Console.ReadLine();
+
+					Console.WriteLine(one);
+					Console.WriteLine(two);*/
+					
+
 					Console.WriteLine("Enter the number for the menu option of your choice: ");
 					Console.WriteLine("[1] - Play the guessing game");
 					Console.WriteLine("[2] - Math Challenge!");
@@ -46,7 +56,21 @@ namespace GuessingGame
 			{
 
 				Console.WriteLine("Guess a number between 1 and 20: "); //Prompt the user
-				int input = int.Parse(Console.ReadLine()); //Read user input, parsing to an int, then save as int "input"
+
+				int? input;
+				string? in2 = Console.ReadLine();			
+
+				try
+				{
+					input = int.Parse(in2); //Read user input, parsing to an int, then save as int "input"
+				}
+				catch (System.Exception ex)
+				{
+					Console.WriteLine(ex.Message); 
+					//Console.WriteLine("Bad input detected. Returning to menu.");
+					break;
+				}
+				
 				Console.WriteLine("You guessed: " + input); //Confirming the input with the user
 
 				if (input == secret) //In the user guessed the secret number (if input is equal to secret number)
@@ -57,12 +81,18 @@ namespace GuessingGame
 
 				else if (input > secret) //If the user guessed too high (If the input is greater than the secret number)
 				{
-				Console.WriteLine("Uh oh, you guessed the number too high!");
+					Console.WriteLine("Uh oh, you guessed the number too high!");
+					Console.WriteLine("Press any key to continue");
+					Console.ReadLine();
+					Console.Clear();
 				}	
 
 				else //If the user guessed too low (If the input is lower than the secret number)
 				{		
-				Console.WriteLine("Oops, you guessed the number too low!");
+					Console.WriteLine("Oops, you guessed the number too low!");
+					Console.WriteLine("Press any key to continue");
+					Console.ReadLine();
+					Console.Clear();
 				}
 			}
 
@@ -82,9 +112,24 @@ namespace GuessingGame
 				Console.WriteLine("Your question is: ");
 				Console.WriteLine("The first random number is : " + num1 + " + The second random number is: " + num2);
 
-				int userGuess = int.Parse(Console.ReadLine()); // Accepting the users solution
+				Console.WriteLine("Please enter your solution: ");
+				string userGuess = Console.ReadLine(); // Accepting the users solution
 
-				if ( sol == userGuess )
+				int intUserGuess;
+
+				bool success = int.TryParse(userGuess, out intUserGuess);
+
+				if (success)
+				{
+					intUserGuess = int.Parse(userGuess);
+				}
+				else
+				{
+					Console.WriteLine("Invalid input. Exiting Additional Challenge.");
+					break;
+				}
+
+				if ( sol == intUserGuess )
 				{
 					Console.WriteLine("Bull's eye! you guesses the correct the number!");
 					Console.WriteLine("Press any key to continue");
@@ -94,7 +139,7 @@ namespace GuessingGame
 				}
 				else
 				{
-					Console.WriteLine("Wrong guess, you were off by: " + Math.Abs( sol - userGuess ));
+					Console.WriteLine("Wrong guess, you were off by: " + Math.Abs( sol - intUserGuess ));
 					Console.WriteLine("Press any key to continue");
 					Console.ReadLine();
 					Console.Clear();
