@@ -1,0 +1,15 @@
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.AssemblyInfo.cs
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\bin\Debug\net6.0\DataStructure.exe
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\bin\Debug\net6.0\DataStructure.deps.json
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\bin\Debug\net6.0\DataStructure.runtimeconfig.json
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\bin\Debug\net6.0\DataStructure.dll
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\bin\Debug\net6.0\DataStructure.pdb
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.dll
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\refint\DataStructure.dll
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.pdb
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\DataStructure.genruntimeconfig.cache
+C:\Revature20220307\KevinL\wk-2\DataStructures\DataStructure\obj\Debug\net6.0\ref\DataStructure.dll

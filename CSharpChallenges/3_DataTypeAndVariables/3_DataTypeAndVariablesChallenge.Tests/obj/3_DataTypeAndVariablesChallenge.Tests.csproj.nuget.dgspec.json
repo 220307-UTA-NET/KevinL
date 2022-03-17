@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Revature20220307\\KevinL\\CSharpChallenges\\3_DataTypeAndVariables\\3_DataTypeAndVariablesChallenge.Tests\\3_DataTypeAndVariablesChallenge.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Revature20220307\\KevinL\\CSharpChallenges\\3_DataTypeAndVariables\\3_DataTypeAndVariablesChallenge.Tests\\3_DataTypeAndVariablesChallenge.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Revature20220307\\KevinL\\CSharpChallenges\\3_DataTypeAndVariables\\3_DataTypeAndVariablesChallenge.Tests\\3_DataTypeAndVariablesChallenge.Tests.csproj",
+        "projectName": "3_DataTypeAndVariablesChallenge.Tests",
+        "projectPath": "C:\\Revature20220307\\KevinL\\CSharpChallenges\\3_DataTypeAndVariables\\3_DataTypeAndVariablesChallenge.Tests\\3_DataTypeAndVariablesChallenge.Tests.csproj",
+        "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature20220307\\KevinL\\CSharpChallenges\\3_DataTypeAndVariables\\3_DataTypeAndVariablesChallenge.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\klee5\\scoop\\apps\\dotnet-sdk\\current\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

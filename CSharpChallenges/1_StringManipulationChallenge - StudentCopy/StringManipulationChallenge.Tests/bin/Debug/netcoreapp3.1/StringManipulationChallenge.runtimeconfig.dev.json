@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\klee5\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\klee5\\.nuget\\packages"
+    ]
+  }
+}
