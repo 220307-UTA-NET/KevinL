@@ -7,34 +7,36 @@ namespace _3_DataTypeAndVariablesChallenge
       public static void Main(string[] args)
       {
 
-          byte myByte = 
+          byte myByte = 225;
 
-          sbyte mySbyte = 
+          sbyte mySbyte = -128;
 
-          int myInt = 
+          int myInt = 2147483647;
 
-          uint myUint = 
+          uint myUint = 4294967295;
 
-          short myShort = 
+          short myShort = -32768;
 
-          ushort myUShort = 
+          ushort myUShort = 65535;
 
-          float myFloat =
+          float myFloat = -31.1289f;
 
-          double myDouble = 
+          double myDouble = -12.1231250;
 
-          char myCharacter = 
+          char myCharacter = 'A';
 
-          bool myBool = 
+          bool myBool = true;
 
-          string myText = 
+          string myText = "This is myText";
 
-          string numText = 
+          string numText = "18";
       }
 
       public static int Text2Num(string numText)
       {
-        throw new NotImplementedException();
+        Int32.TryParse(numText, out int stringInt);
+        return stringInt;
+        //throw new NotImplementedException();
       }
     }
 }
