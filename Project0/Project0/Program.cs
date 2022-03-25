@@ -20,6 +20,11 @@ namespace Project0
                 switch(userMenuInput)
                 {
                     case 1:
+                    bool loginComplete = false;
+                    do
+                    {
+
+                    }(!loginComplete == false);
                     break;
 
                     case 2:
