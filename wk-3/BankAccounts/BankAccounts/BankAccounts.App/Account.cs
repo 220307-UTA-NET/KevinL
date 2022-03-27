@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 namespace BankAccounts
 {
      abstract class Account
@@ -70,7 +71,7 @@ namespace BankAccounts
                 // this.Record(-withdrawl);
 
                 var withdrawl = new Transaction(-amount, DateTime.Now, note);
-                allTransactions.Add
+                allTransactions.Add(withdrawl);
             }            
             //throw new NotImplementedException();
         } 

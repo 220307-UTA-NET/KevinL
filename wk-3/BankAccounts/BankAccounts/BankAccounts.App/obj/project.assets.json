@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature20220307\\KevinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.csproj",
+      "projectUniqueName": "C:\\Revature20220307\\KEvinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.App\\BankAccounts.csproj",
       "projectName": "BankAccounts",
-      "projectPath": "C:\\Revature20220307\\KevinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.csproj",
+      "projectPath": "C:\\Revature20220307\\KEvinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.App\\BankAccounts.csproj",
       "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature20220307\\KevinL\\wk-3\\BankAccounts\\BankAccounts\\obj\\",
+      "outputPath": "C:\\Revature20220307\\KEvinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",

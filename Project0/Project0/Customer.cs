@@ -35,5 +35,10 @@ namespace Project0
         {
             return this.customerLastName;
         }
+
+        public void customerHistoryPurchase(int customerId)
+        {
+            Console.WriteLine("The customer #" + customerId + "'s past purchases are:");
+        }
     }
 }

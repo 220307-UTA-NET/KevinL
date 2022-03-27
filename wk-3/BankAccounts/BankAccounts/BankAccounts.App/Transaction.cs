@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 namespace BankAccounts
 {
     public class Transaction

@@ -17,5 +17,10 @@ namespace Project0
         {
             return this.storeLocation;
         } 
+
+        public void locationHistoryPurchase(int storeLocationId)
+        {
+             Console.WriteLine("The location #" + storeLocationId + "'s past purchases are:");
+        }
     }
 }

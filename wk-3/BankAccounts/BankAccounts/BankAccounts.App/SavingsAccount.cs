@@ -5,10 +5,10 @@ namespace BankAccounts
         //Fields
 
         //Constructor
-        public SavingsAccount(string accountName, double accountBalance)
+        public SavingsAccount(string accountName, double firstDeposit)
         {
             this.accountName = accountName;
-            this.Deposit(accountBalance, "First Deposit");
+            this.Deposit(firstDeposit, "First Deposit");
             this.interestRate = 0.003;
         }
 

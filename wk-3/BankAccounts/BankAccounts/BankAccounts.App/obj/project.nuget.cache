@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jdZQZRRq7Zq6SnyPphHV+5AUTpx9cGsm0pyH1eKZw2R786qGaOHdGyXhsa7X4asSHGzXfVNW8zgvYLFii/sn+A==",
+  "dgSpecHash": "GJD7njIXH5ThdDvOqU5wYDtcJXdF8NBs2sOvf793KQLku2FHDHcHJg7HaCi0jLsrogutbL1TCSs3KS4jDQ6f3A==",
   "success": true,
-  "projectFilePath": "C:\\Revature20220307\\KevinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.csproj",
+  "projectFilePath": "C:\\Revature20220307\\KEvinL\\wk-3\\BankAccounts\\BankAccounts\\BankAccounts.App\\BankAccounts.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
