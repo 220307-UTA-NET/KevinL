@@ -156,18 +156,37 @@ namespace Project0
                 "[1] Washington D.C.\n [2] Philadelphia\n [3] New York City\n [4] Boston\n [0] Go back to the Main Menu");
                 string userStoreLocationInput = Console.ReadLine();
 
-                switch(userStoreLocationInput)
-                {
-                    case "0":
-                    mainMenu();
-                    break;
-
-                    default:
-                    Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");                   
-                    break;  
-                }              
+                    if(userStoreLocationInput == "1"|"2"|"3"|"4")
+                    {
+                        shoppingCart();
+                        userSelectedStoreLocation = true;
+                    }
+                    else if(userStoreLocationInput == "0")
+                    {
+                        mainMenu();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");
+                    }  
+                             
 
             } while(!userSelectedStoreLocation);                
+        }
+
+        static void shoppingCart()
+        {
+            List<int> cart = new List<int>();
+            int cartCost=  0;
+            int itemCount = 0;
+            List<int> itemIdList = new List<int>();
+
+            Console.WriteLine("Do you want to add an item to your cart?\n " + 
+            "[1] Yes\n [2] No\n");
+            string addItems = Console.ReadLine();
+            Console.WriteLine();
+            
+           
         }
     }
 }

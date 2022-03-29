@@ -1,3 +1,5 @@
+using System.Xml.Serialization;
+
 namespace Project0
 {
     class Location
@@ -7,7 +9,7 @@ namespace Project0
         private string storeLocation;
 
         //Constructor        
-        //Methods
+        
         public int GetStoreLocationId()
         {
             return this.storeLocationId;
@@ -17,6 +19,8 @@ namespace Project0
         {
             return this.storeLocation;
         } 
+
+        //Methods
 
         public void locationHistoryPurchase(int storeLocationId)
         {
