@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Project0.DataInfrastructure\Project0.DataInfrastructure.csproj" />
     <ProjectReference Include="..\Project0.Logic\Project0.Logic.csproj" />
-    <ProjectReference Include="..\Project0.Test\Project0.Test.csproj" />
   </ItemGroup>
 
 </Project>

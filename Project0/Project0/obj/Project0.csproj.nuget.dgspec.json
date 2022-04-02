@@ -4,14 +4,14 @@
     "C:\\Revature20220307\\KevinL\\Project0\\Project0\\Project0.csproj": {}
   },
   "projects": {
-    "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj": {
+    "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj",
-        "projectName": "Project0.Logic",
-        "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj",
+        "projectUniqueName": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj",
+        "projectName": "Project0.DataInfrastructure",
+        "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj",
         "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\obj\\",
+        "outputPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\Project0.Test.csproj": {
+    "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\Project0.Test.csproj",
-        "projectName": "Project0.Test",
-        "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\Project0.Test.csproj",
+        "projectUniqueName": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj",
+        "projectName": "Project0.Logic",
+        "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj",
         "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\obj\\",
+        "outputPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -87,7 +87,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj": {
+                "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -100,29 +104,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.11.0, )"
-            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.3, )"
-            },
-            "coverlet.collector": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.1, )"
-            },
-            "xunit.runner.visualstudio": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.4.3, )"
             }
           },
           "imports": [
@@ -168,11 +152,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj": {
+                "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj"
+              },
               "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj": {
                 "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj"
-              },
-              "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\Project0.Test.csproj": {
-                "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Test\\Project0.Test.csproj"
               }
             }
           }

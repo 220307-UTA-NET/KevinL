@@ -130,6 +130,19 @@
             "rid": "win"
           }
         }
+      },
+      "Project0.DataInfrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/Project0.DataInfrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project0.DataInfrastructure.dll": {}
+        }
       }
     }
   },
@@ -446,10 +459,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Project0.DataInfrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Project0.DataInfrastructure/Project0.DataInfrastructure.csproj",
+      "msbuildProject": "../Project0.DataInfrastructure/Project0.DataInfrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Project0.DataInfrastructure >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -479,7 +498,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj": {
+              "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
