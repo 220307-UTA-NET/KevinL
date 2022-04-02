@@ -1,6 +1,6 @@
-namespace Project0
+namespace Project0.Logic
 {
-     internal class Customer
+     public class Customer
     {
         //Fields
         private int customerId;
@@ -9,7 +9,18 @@ namespace Project0
         private string customerFirstName;
         private string customerLastName;
 
-        //Constructor        
+        //Constructor
+        //
+        public Customer() { }
+
+        public Customer(int customerId, string customerUsername, string customerPassword, string customerFirstName, string customerLastName)
+        {
+            this.customerId = customerId;
+            this.customerUsername = customerUsername;
+            this.customerPassword = customerPassword;
+            this.customerFirstName = customerFirstName;
+            this.customerLastName = customerLastName;        
+        }
         //Methods
         public int GetCustomerId()
         {

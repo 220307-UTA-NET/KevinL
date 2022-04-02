@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Project0.Logic;
 
 namespace Project0
 {
@@ -68,7 +69,12 @@ namespace Project0
                 Console.WriteLine("Enter your password");
                 string customerPassword = Console.ReadLine();
 
-                if(connection.customerFound(customerUsername, customerPassword))
+                Console.WriteLine("Login success, welcome, you are clear to enter to the main menu.");
+                loginComplete = true;
+                mainMenu();
+
+
+                /*if(connection.customerFound(customerUsername, customerPassword))
                 {
                     Console.WriteLine("Login success, welcome, you are clear to enter to the main menu.");
                     loginComplete = true;
@@ -79,7 +85,7 @@ namespace Project0
                 {
                     Console.WriteLine("I'm sorry, but the user does not exist. Please try again or register.");
                     firstMenu();
-                }
+                }*/
 
             } while (!loginComplete);            
         }
@@ -239,7 +245,7 @@ namespace Project0
             do
             {
                 Console.WriteLine("Select the number what you want to do:\n " +
-                "[1]Add product\n [2]Remove product\n [3]View shopping cart\n [4]Empty the shopping cart\n [5]Proceed to he checkout\n" +
+                "[1]Add product\n [2]Remove product\n [3]View shopping cart\n [4]Empty the shopping cart\n [5]Proceed to the checkout\n" +
                 " [0]Empty the shopping cart and go back to Main Menu");
 
                 string userShoppingInput = Console.ReadLine();
@@ -314,7 +320,7 @@ namespace Project0
             }
             
         }
-
+       
         static void checkout()
         {
             int totalItemCount = 0;
@@ -351,15 +357,32 @@ namespace Project0
         static void purchase()
         {
             Console.WriteLine();
-           // string cost = _connection.CartPrice(cart).ToString();
-            //int intcost = _connection.CartPrice(cart);
-            //Console.WriteLine("\t" + cost);
-            bool paid = false;
+            string cost = /*connection.cartPrice(cart).ToString();*/null;
+            int intCost = /*connection.cartPrice(cart);*/0;
+            Console.WriteLine("\t" + cost);
+            bool customerPaid = false;
             do
             {
+                Console.WriteLine("Enter your money:\n");
+                string payment = Console.ReadLine();
+                int intPayment = /*customer.IntConversion(payment);*/0;
+                if(payment == cost)
+                {
+                    Console.WriteLine();
+                    customerPaid = true;
+                }
+                else if (intPayment > intCost)
+                {
+                    int change = intPayment - intCost;
+                    Console.WriteLine($"Paymentaccepted.\nHere is your change: {change}\n");
+                    customerPaid = true;
+                }
+                else
+                {
+                    Console.WriteLine("Payment is not accepted.\n Please enter correct amount.\n");
+                }
 
-
-            } while (!paid);
+            } while (!customerPaid);
         }
     }
 }

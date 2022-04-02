@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace Project0
+namespace Project0.Logic
 {
     class Order
     {

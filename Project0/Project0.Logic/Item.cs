@@ -1,4 +1,4 @@
-namespace Project0
+namespace Project0.Logic
 {
     class Item
     {
@@ -8,7 +8,17 @@ namespace Project0
         private double itemPrice;
         private string itemDescription;
 
-        //Constructor        
+        //Constructor
+        public Item() { }
+        public Item(int itemId, string intName, double itemPrice, string itemDescription) 
+        {
+            
+            this.itemId = itemId;
+            this.itemName = intName;
+            this.itemPrice = itemPrice;
+            this.itemDescription = itemDescription;
+        }
+
         //Methods
         public int GetItemId()
         {
