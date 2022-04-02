@@ -1,0 +1,12 @@
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\bin\Debug\net5.0\School.DataInfrastructure.deps.json
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\bin\Debug\net5.0\School.DataInfrastructure.dll
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\bin\Debug\net5.0\ref\School.DataInfrastructure.dll
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\bin\Debug\net5.0\School.DataInfrastructure.pdb
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.AssemblyInfo.cs
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.dll
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\ref\School.DataInfrastructure.dll
+C:\Revature20220307\KevinL\wk-4\School.DataInfrastructure\obj\Debug\net5.0\School.DataInfrastructure.pdb

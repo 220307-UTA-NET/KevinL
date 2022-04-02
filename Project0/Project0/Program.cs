@@ -5,6 +5,9 @@ namespace Project0
 {
     class Program
     {
+
+        private static DataBaseConnection connection = new DataBaseConnection();
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, thank you for using Kevin Lee's Korean Store");
@@ -13,13 +16,14 @@ namespace Project0
         //The user enteres the first selection menu
         static void firstMenu()
         {
-             bool userOperate = true;
+            bool userOperate = true;
 
             do
             {
                 Console.WriteLine("Select the number that what would you like to do:\n "+
                 "[1] Login [2] Register [3] View history [0] Exit");
                 string userFirstInput = Console.ReadLine();
+
 
                 switch(userFirstInput)
                 {                                    
@@ -56,26 +60,54 @@ namespace Project0
          //The user login menu
         static void login()
         {
-            Console.WriteLine("Enter your customer username");
-            string customerUsername = Console.ReadLine();
-            Console.WriteLine("Enter your password");
-            string customerPassword = Console.ReadLine();
+            bool loginComplete = false;
+            do
+            {
+                Console.WriteLine("Enter your customer username");
+                string customerUsername = Console.ReadLine();
+                Console.WriteLine("Enter your password");
+                string customerPassword = Console.ReadLine();
+
+                if(connection.customerFound(customerUsername, customerPassword))
+                {
+                    Console.WriteLine("Login success, welcome, you are clear to enter to the main menu.");
+                    loginComplete = true;
+                    mainMenu();
+                    
+                }
+                else
+                {
+                    Console.WriteLine("I'm sorry, but the user does not exist. Please try again or register.");
+                    firstMenu();
+                }
+
+            } while (!loginComplete);            
         }
 
         //The user registers as a new customer
-        static void register()
+        static void register()       
         {
-            Console.WriteLine("Enter your customer firstname");
-            string customerFirstname = Console.ReadLine();
-            Console.WriteLine("Enter your customer lastname");
-            string customerLastname = Console.ReadLine();
-            Console.WriteLine("Enter your customer username");
-            string customerUsername = Console.ReadLine();
-            Console.WriteLine("Enter your customer password");
-            string customerPassword = Console.ReadLine();
 
-            Console.WriteLine("Welcome, " + customerFirstname + " " + customerLastname + "! ");
-            mainMenu();
+            bool registerComplete = false;
+
+            do
+            {
+                Console.WriteLine("Enter your customer firstname");
+                string customerFirstname = Console.ReadLine();
+                Console.WriteLine("Enter your customer lastname");
+                string customerLastname = Console.ReadLine();
+                Console.WriteLine("Enter your customer username");
+                string customerUsername = Console.ReadLine();
+                Console.WriteLine("Enter your customer password");
+                string customerPassword = Console.ReadLine();
+
+                Console.WriteLine("Welcome, " + customerFirstname + " " + customerLastname + "! " +
+                "Before you enter the store, we will like to login first for security reason.");
+                registerComplete = true;
+                login();
+
+            } while (!registerComplete);
+            
 
         }
             
@@ -156,37 +188,178 @@ namespace Project0
                 "[1] Washington D.C.\n [2] Philadelphia\n [3] New York City\n [4] Boston\n [0] Go back to the Main Menu");
                 string userStoreLocationInput = Console.ReadLine();
 
-                    if(userStoreLocationInput == "1"|"2"|"3"|"4")
-                    {
-                        shoppingCart();
-                        userSelectedStoreLocation = true;
-                    }
-                    else if(userStoreLocationInput == "0")
-                    {
-                        mainMenu();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");
-                    }  
-                             
+                switch(userStoreLocationInput)
+                {
+                    case "1":
+                    string storeLocation = "Washington D.C.";
+                    userSelectedStoreLocation = true; 
+                    break;
 
-            } while(!userSelectedStoreLocation);                
+                    case "2": 
+                    storeLocation = "Philadelphia";   
+                    userSelectedStoreLocation = true;                   
+                    break;
+
+                    case "3":   
+                    storeLocation = "New York City";  
+                    userSelectedStoreLocation = true; 
+                    break;
+
+                    case "4": 
+                    storeLocation = "Boston";   
+                    userSelectedStoreLocation = true;                    
+                    break;
+
+                    case "0":
+                    mainMenu();
+                    userSelectedStoreLocation = true; 
+                    break;
+                      
+                    default:
+                    Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)"); 
+                    break;
+                }                             
+
+            } while(!userSelectedStoreLocation);  
+            shoppingCart();
         }
 
         static void shoppingCart()
         {
+
             List<int> cart = new List<int>();
             int cartCost=  0;
             int itemCount = 0;
             List<int> itemIdList = new List<int>();
+            //itemIDList = _connection.GetItemIDs(itemIDList);
+            List<int>realItemId = itemIdList; 
 
-            Console.WriteLine("Do you want to add an item to your cart?\n " + 
+
+            bool userShopping = true;
+            do
+            {
+                Console.WriteLine("Select the number what you want to do:\n " +
+                "[1]Add product\n [2]Remove product\n [3]View shopping cart\n [4]Empty the shopping cart\n [5]Proceed to he checkout\n" +
+                " [0]Empty the shopping cart and go back to Main Menu");
+
+                string userShoppingInput = Console.ReadLine();
+
+                switch(userShoppingInput)
+                {
+
+                    case "1":
+                        addItemCart();
+                    break;
+
+                    case "2":
+                        removeItemCart();
+                    break;
+
+                    case "3":
+                    break;
+
+                    case "4":
+                        cartCost = 0;
+                        itemCount = 0;
+                        Console.WriteLine("Your cart was reseted.");
+                        break;
+
+                    case "5":
+                    checkout();
+                    userShopping = false; 
+                    break;
+
+                    case "0":
+                    mainMenu();
+                    userShopping = false;
+                        cartCost = 0;
+                        itemCount = 0;
+                    break;
+
+
+                    default:
+                    Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 5)");
+                    break;
+                }
+
+
+            }while(userShopping == true);
+                     
+           
+        }
+
+        static void addItemCart()
+        {
+            Console.WriteLine("Press the number that you want to add.");
+
+
+            Console.WriteLine("Do you want to add an item to your cart?\n " +
             "[1] Yes\n [2] No\n");
             string addItems = Console.ReadLine();
             Console.WriteLine();
+        }
+
+        static void removeItemCart()
+        {
+            int itemCount = 0;
+            if(itemCount <= 0)
+            {
+                Console.WriteLine("I'm sorry, since there is no cart to add, we will send back to the shooping cart menu");
+                shoppingCart();
+            }
+            else
+            {
+                Console.WriteLine("Press the number that you want to remove.");
+
+            }
             
-           
+        }
+
+        static void checkout()
+        {
+            int totalItemCount = 0;
+            double totalPrice = 0.00;
+
+            if(totalItemCount == 0)
+            {
+                Console.WriteLine("I'm sorry, we cannot proceed checkout without any item(s). We will send you back to shopping cart menu.");
+                shoppingCart();                
+            }
+            else
+            {
+                Console.WriteLine("Would you like to proceed to pay?\n [1]Yes\n [0]No and go back to shopping cart menu");
+                string proceedPayment = Console.ReadLine();
+
+                switch(proceedPayment)
+                {
+                    case "1":
+                    purchase();
+                    break;
+
+                    case "0":
+                    shoppingCart();
+                    break;
+
+                    default:
+                    Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 1)");
+                    break;              
+                
+                }
+            }
+        }
+
+        static void purchase()
+        {
+            Console.WriteLine();
+           // string cost = _connection.CartPrice(cart).ToString();
+            //int intcost = _connection.CartPrice(cart);
+            //Console.WriteLine("\t" + cost);
+            bool paid = false;
+            do
+            {
+
+
+            } while (!paid);
         }
     }
 }

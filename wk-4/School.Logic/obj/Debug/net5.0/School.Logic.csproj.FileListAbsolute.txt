@@ -1,0 +1,5 @@
+C:\Revature20220307\KevinL\wk-4\School.Logic\obj\Debug\net5.0\School.Logic.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\wk-4\School.Logic\obj\Debug\net5.0\School.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\wk-4\School.Logic\obj\Debug\net5.0\School.Logic.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\wk-4\School.Logic\obj\Debug\net5.0\School.Logic.AssemblyInfo.cs
+C:\Revature20220307\KevinL\wk-4\School.Logic\obj\Debug\net5.0\School.Logic.csproj.CoreCompileInputs.cache
