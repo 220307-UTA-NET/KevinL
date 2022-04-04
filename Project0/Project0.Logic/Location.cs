@@ -32,7 +32,13 @@ namespace Project0.Logic
 
         public void locationHistoryPurchase(int storeLocationId)
         {
-             Console.WriteLine("The location #" + storeLocationId + "'s past purchases are:");
+            Console.WriteLine("The location #" + storeLocationId + "'s past purchases are:");
+            
+        }
+
+        public void inventory()
+        {
+
         }
     }
 }

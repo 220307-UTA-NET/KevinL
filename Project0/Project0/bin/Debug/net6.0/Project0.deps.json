@@ -93,6 +93,7 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "Project0.DataInfrastructure/1.0.0": {
         "dependencies": {
+          "Project0.Logic": "1.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "runtime": {
@@ -101,7 +102,6 @@
       },
       "Project0.Logic/1.0.0": {
         "dependencies": {
-          "Project0.DataInfrastructure": "1.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "runtime": {

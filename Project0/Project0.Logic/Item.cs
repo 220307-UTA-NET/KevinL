@@ -1,22 +1,24 @@
 namespace Project0.Logic
 {
-    class Item
+     public class Item
     {
         //Fields
         private int itemId;
         private string itemName;
-        private double itemPrice;
+        private decimal itemPrice;
         private string itemDescription;
+        private int itemQuantity;
 
         //Constructor
         public Item() { }
-        public Item(int itemId, string intName, double itemPrice, string itemDescription) 
+        public Item(int itemId, string intName, decimal itemPrice, string itemDescription, int itemQuantity) 
         {
             
             this.itemId = itemId;
             this.itemName = intName;
             this.itemPrice = itemPrice;
             this.itemDescription = itemDescription;
+            this.itemQuantity = itemQuantity;
         }
 
         //Methods
@@ -30,7 +32,7 @@ namespace Project0.Logic
             return this.itemName;
         }
 
-        public double GetItemPrice()
+        public decimal GetItemPrice()
         {
             return this.itemPrice;
         }
@@ -38,6 +40,11 @@ namespace Project0.Logic
         public string GetItemDescription()
         {
             return this.itemDescription;
+        }
+
+        public int GetItemQuantity()
+        {
+            return this.itemQuantity;
         }
 
     }

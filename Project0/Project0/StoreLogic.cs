@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project0.Logic;
+using Project0.DataInfrastructure;
+using System.Data.SqlClient;
 
 namespace Project0
 {
     public class StoreLogic
     {
-        //private readonly DataBaseConnection _conn;
+        IDataBaseConnection connection;
 
-        
+        public StoreLogic(IDataBaseConnection connection)
+        {
+            this.connection = connection;
+        }        
 
         //The user enteres the first selection menu
         public void firstMenu()
@@ -64,24 +69,19 @@ namespace Project0
                 Console.WriteLine("Enter your customer username");
                 string customerUsername = Console.ReadLine();
                 Console.WriteLine("Enter your password");
-                string customerPassword = Console.ReadLine();
+                string customerPassword = Console.ReadLine();               
 
-                Console.WriteLine("Welcome, you are clear to enter to the main menu.");
-                mainMenu();
-                loginComplete = true;
-
-                /* if(_conn.customerFound(customerUsername, customerPassword))
+                if(this.connection.customerFound(customerUsername, customerPassword))
                   {
-                     // _customer.CustomerInfo(customerUsername, customerPassword);
-                      Console.WriteLine("Welcome, you are clear to enter to the main menu.");
-                      mainMenu();
-                      loginComplete = true;
+                     Console.WriteLine("Welcome, you are clear to enter to the main menu.");
+                     mainMenu();
+                     loginComplete = true;
 
                   }
                   else 
                   {
                       Console.WriteLine("I'm sorry, the user does not exist. Please try again or register.");
-                  }*/
+                  }
 
             } while (!loginComplete);            
         }
@@ -95,18 +95,31 @@ namespace Project0
             {
                 Console.WriteLine("Welcome to the registeration menu.");
                 Console.WriteLine("Enter your customer firstname");
-                string customerFirstname = Console.ReadLine();
+                string customerFirstName = Console.ReadLine();
                 Console.WriteLine("Enter your customer lastname");
-                string customerLastname = Console.ReadLine();
+                string customerLastName = Console.ReadLine();
                 Console.WriteLine("Enter your customer username");
                 string customerUsername = Console.ReadLine();
                 Console.WriteLine("Enter your customer password");
                 string customerPassword = Console.ReadLine();
+                string result = "";
+                
 
-                Console.WriteLine("Welcome, " + customerFirstname + " " + customerLastname + "! " +
-                    "Before you enter the store, we will like to login first for security reason.");
-                //_conn.newCustomer(customerFirstname, customerFirstname, customerUsername, customerUsername);
-                registerComplete = true;
+                 if (this.connection.customerFound(customerUsername, customerPassword))
+                  {
+                      Console.WriteLine("I'm sorry, but this customer username already exists. Please try again.");
+                        
+
+                  }
+                  else
+                  {
+
+                    connection.newCustomer(customerFirstName, customerLastName, customerUsername, customerPassword);              
+                                      
+                    Console.WriteLine("Welcome, " + customerFirstName + " " + customerLastName + "! " +
+                     "Before you enter the store, we will like to login first for security reason.");
+                      registerComplete = true;
+                  }
                 login();
 
             } while (!registerComplete);           
@@ -151,6 +164,7 @@ namespace Project0
 
         }
 
+        //After user successfully logs in, the system lets the user enter the main menu
         public void mainMenu()
         {
             bool userMainMenuSelected = false;
@@ -162,11 +176,13 @@ namespace Project0
 
                 switch (userMainMenuInput)
                 {
+                    //Customer enters the seletion menu of the location.
                     case "1":
                         storeLocationSelect();
                         userMainMenuSelected = true;
                         break;
 
+                    //Goes back to the first menu
                     case "0":
                         firstMenu();
                         break;
@@ -180,7 +196,6 @@ namespace Project0
         }
 
         //A selection menu which allows user to select the location
-
         public void storeLocationSelect()
         {
             bool userSelectedStoreLocation = false;
@@ -189,11 +204,12 @@ namespace Project0
                 Console.WriteLine("Which location do you want to shop? Select the number where you want to shop\n " +
                 "[1] Washington D.C.\n [2] Philadelphia\n [3] New York City\n [4] Boston\n [0] Go back to the Main Menu");
                 string userStoreLocationInput = Console.ReadLine();
+                string storeLocation;
 
                 switch (userStoreLocationInput)
                 {
                     case "1":
-                        string storeLocation = "Washington D.C.";
+                        storeLocation = "Washington D.C.";
                         userSelectedStoreLocation = true;
                         break;
 
@@ -221,80 +237,191 @@ namespace Project0
                         Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");
                         break;
                 }
+                this.shoppingCart();
 
-            } while (!userSelectedStoreLocation);
-            //shoppingCart();
+            } while (!userSelectedStoreLocation);            
         }
 
-        static void shoppingCart()
-        {
+        //User enteres the shopping cart menu after choosing the store location
+        public void shoppingCart()
+        {         
 
-           List<int> cart = new List<int>();
-           int totalItemCount=  0;
-           double totalPrice = 0;
-           List<int> itemIdList = new List<int>();
-
-           Console.WriteLine("Do you want to add an item to your cart?\n " + 
-           "[1] Yes\n [2] No\n");
-           string addItems = Console.ReadLine();                       
-           Console.WriteLine();
+            Console.WriteLine("Your shopping cart contains: ");
+            this.connection.cartItems(int item);
+            List<Item> cart = new List<Item>();
+            int totalItemCount = 0;
+            decimal totalCartPrice = 0.00M;
+            List<Item> itemIdList = new List<Item>();
+            //itemIdList = connection.getItemId(storeLocation);
 
             bool userShopping = true;
             do
             {
                 Console.WriteLine("Select the number what you want to do:\n " +
-                "[1]Add product\n [2]Remove product\n [3]View shopping cart\n [4]Empty the shopping cart\n [5]Proceed to he checkout\n" +
+                "[1]Add product\n [2]Remove product\n [3]Empty the shopping cart\n [4]Proceed to the checkout\n" +
                 " [0]Empty the shopping cart and go back to Main Menu");
 
                 string userShoppingInput = Console.ReadLine();
 
                 switch (userShoppingInput)
                 {
-
+                    //User wants to add items in cart
                     case "1":
+                        addItemCart(totalItemCount, totalCartPrice);
                         break;
 
+                    //User wants to remove items in cart
                     case "2":
+                        removeItemCart(totalItemCount, totalCartPrice);
                         break;
 
+                    //User wants to clear the shopping cart
                     case "3":
+                        cart.Clear();
+                        totalItemCount = 0;
+                        totalCartPrice = 0.00M;
                         break;
 
+                    //Customer wants to checkout
                     case "4":
-                        break;
-
-                    case "5":
-                       // checkout();
+                        checkout(totalItemCount, totalCartPrice);
                         userShopping = false;
                         break;
 
+                    //Customer want to stop shop and got back to the main menu. Moreover, the shopping cart will clear.  
                     case "0":
-                       // mainMenu();
+                        mainMenu();
+                        cart.Clear();
                         userShopping = false;
+                        totalItemCount = 0;
+                        totalCartPrice = 0.00M;
                         break;
 
 
                     default:
-                        Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 5)");
+                        Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");
                         break;
                 }
-
-
-            } while (userShopping == true);
-           
-
+            } while (userShopping == true);           
         }
 
-        static void checkout()
+        //User wants to add an item
+        public void addItemCart(int totalItemCount, decimal totalCartPrice)
         {
-            int totalItemCount = 0;
-            double totalPrice = 0.00;
+            this.connection.inventory(storeLocation);
+            List<Item> inventory = new List<Item>();
+            int customerAddQuantity = 0;
+            decimal customerItemQuantityPrice;
+            decimal itemPrice = 0.00M;
+            List<Item> itemIdList = new List<Item>();
+           // itemIdList = connection.getItemId(this.shoppingCart());
 
+            Console.WriteLine("Press the number that you want to add.");
+            string addItemId = ToInt32(Console.ReadLine());
+
+
+            if()
+            {
+                Console.WriteLine("Invalid input! Please type the correct itemId number! (1 - 11) or 0 to go back to the shopping cart menu");
+            }
+            else if(addItemId == "0")
+            {
+                shoppingCart();
+            }
+            else
+            {
+                Console.WriteLine("Do you want to add an item to your cart?\n " +
+            "[1] Yes\n [2] No\n");
+                string addItems = Console.ReadLine();
+                if (addItems == "1")
+                {
+                    //The system asks how many does the customer asks.
+                    Console.WriteLine("How many do you want to add?");
+
+                    string customerAddQuantity = (Console.ReadLine());
+                    bool 
+                    if (customerAddQuantity <= 10)
+                    {
+                        customerItemQuantityPrice = customerAddQuantity * itemPrice;
+                        totalCartPrice += customerItemQuantityPrice;
+                        totalItemCount += customerAddQuantity;
+                    }
+
+                    //The system lets the customer up to 10 per each item quantity.
+                    else if (customerAddQuantity > 10 || customerAddQuantity < 0)
+                    {
+                        Console.WriteLine("I'm sorry, but for now we can only accept up to 10 per item.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input! Please type numbers 1-10. Or type 0 to cancel the add");
+                    }
+
+                }
+                else if (addItems == "2")
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input! Please type the number again (1 or 2)");
+                }
+            }          
+
+            shoppingCart();
+        }
+
+        //The user wants to remove an item
+        public void removeItemCart(int totalItemCount, decimal totalCartPrice)
+        {
+            int customerRemoveItemQuantity = 0;
+            int individualItemInCart = 0;
+            decimal itemPrice = 0.00M;
+
+            totalItemCount = 0;
+            if (totalItemCount <= 0)
+            {
+                Console.WriteLine("I'm sorry, since there is no item in your cart to remove, we will send back to the shopping cart menu");
+                shoppingCart();
+            }
+
+            /*else if(cart< customerRemoveItemQuantity)
+            {
+                Console.WriteLine();
+            }*/
+            else
+            {
+                Console.WriteLine("Press the itemId number that you want to remove.");
+                //string removeItemId = ToInt32(Console.ReadLine());
+
+                 
+                /*if () { }
+                 * 
+                //If there is no certain item on an cart or  item itselfdoes not exist or user types wrong input
+                else
+                {
+                    Console.WriteLine("Invalid Input! Plpease type the correct input!");
+                }*/
+
+
+            }
+            shoppingCart();
+        }
+
+        //User enters to checkout menu 
+        public void checkout(int totalItemCount, decimal totalCartPrice)
+        {
+            totalItemCount = 0;
+            totalCartPrice = 0.00M;
+
+            //If there is no item is the cart, the process will not let you proceed and send you back to shopping cart menu.
             if (totalItemCount == 0)
             {
                 Console.WriteLine("I'm sorry, we cannot proceed checkout without any item(s). We will send you back to shopping cart menu.");
                 shoppingCart();
             }
+
+            //The customer wants to proceed to payment or not and go back to shooping cart menu to edit 
             else
             {
                 Console.WriteLine("Would you like to proceed to pay?\n [1]Yes\n [0]No and go back to shopping cart menu");
@@ -302,10 +429,12 @@ namespace Project0
 
                 switch (proceedPayment)
                 {
+                    //The customer wants to proceed to the payment
                     case "1":
                         purchase();
                         break;
 
+                    //the customer wants to go back to the shopping cart menu and edit the shopping cart.
                     case "0":
                         shoppingCart();
                         break;
@@ -318,22 +447,38 @@ namespace Project0
             }
         }
 
-        static void purchase()
+        //The process of purchase.
+        public void purchase()
         {
             Console.WriteLine();
-            //string cost = _connection.CartPrice(cart).ToString();
-            //int intcost = _connection.CartPrice(cart);
-            //Console.WriteLine("\t" + cost);
-            bool paid = false;
+            string cost = /*connection.cartPrice(cart).ToString();*/null;
+            int intCost = /*connection.cartPrice(cart);*/0;
+            Console.WriteLine("\t" + cost);
+            bool customerPaid = false;
             do
             {
+                Console.WriteLine("Enter your money:\n");
+                string payment = Console.ReadLine();
+                int intPayment = /*customer.IntConversion(payment);*/0;
+                if (payment == cost)
+                {
+                    Console.WriteLine();
+                    customerPaid = true;
+                }
+                else if (intPayment > intCost)
+                {
+                    int change = intPayment - intCost;
+                    Console.WriteLine($"Paymentaccepted.\nHere is your change: {change}\n");
+                    customerPaid = true;
+                    mainMenu();
+                }
+                else
+                {
+                    Console.WriteLine("Payment is not accepted.\n Please enter correct amount.\n");
+                }
 
-
-            } while (!paid);
+            } while (!customerPaid);
         }
-
-
-
 
     }
 

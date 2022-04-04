@@ -130,6 +130,19 @@
             "rid": "win"
           }
         }
+      },
+      "Project0.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/Project0.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project0.Logic.dll": {}
+        }
       }
     }
   },
@@ -446,10 +459,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Project0.Logic/1.0.0": {
+      "type": "project",
+      "path": "../Project0.Logic/Project0.Logic.csproj",
+      "msbuildProject": "../Project0.Logic/Project0.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Project0.Logic >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -479,7 +498,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj": {
+              "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

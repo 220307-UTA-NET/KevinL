@@ -1,13 +1,19 @@
 --20220307 Project0 SQL
-
+CREATE SCHEMA Project0;
 --To create the table of the customer
 CREATE TABLE Customers(
-customerID INT PRIMARY KEY IDENTITY,
+customerId INT PRIMARY KEY IDENTITY,
 customerFirstName NVARCHAR(25) NOT NULL,
 customerLastName NVARCHAR(25) NOT NULL,
-customerUsername NVARCHAR(25) NOT NULL,
+customerUsername uniqueidentifier NVARCHAR(25) NOT NULL,
 customerPassword NVARCHAR(25) NOT NULL
 );
+
+INSERT INTO Customers(customerFirstName,customerLastName,customerUsername,customerPassword) VALUES('Kevin','Lee','libra','opal')
+
+SELECT * FROM Customers; 
+
+DROP TABLE Customers;
 
 --To create the table of the location of the store
 CREATE TABLE Locations(
@@ -50,6 +56,8 @@ storeLocationId INT FOREIGN KEY REFERENCES Locations(storeLocationId),
 itemId INT FOREIGN KEY REFERENCES Items(itemId),
 itemQuantity INT
 );
+
+SELECT * FROM Inventory INNER JOIN Locations ON Locations.storeLocationId = Inventory.storeLocationId INNER JOIN Items ON Items.itemId = Inventory.itemId WHERE storeLocation = 'Boston' ;
 
 --Insert table of inventory
 INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,1,50);
@@ -101,12 +109,13 @@ INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,10,36);
 INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,11,28);
 
 
-
 --
-CREATE TABLE CustomerOrders(
-
+CREATE TABLE PastOrders(
+lineId INT PRIMARY KEY IDENTITY,
+orderId uniqueidentifier NOT NULL,
+storeLocationId INT NULL FOREIGN KEY REFERENCES Locations(storeLocationId),
+customerId INT NULL FOREIGN KEY REFERENCES Customers(customerId),
+itemName NVARCHAR(25) NOT NULL FOREIGN KEY REFERENCES Items(itemName),
+orderTotal DECIMAL NOT NULL
 );
 
-CREATE TABLE StoreOrders(
-
-);

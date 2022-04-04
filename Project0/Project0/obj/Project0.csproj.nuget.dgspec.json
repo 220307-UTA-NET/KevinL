@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj": {
+                "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.Logic\\Project0.Logic.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -87,11 +91,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj": {
-                "projectPath": "C:\\Revature20220307\\KevinL\\Project0\\Project0.DataInfrastructure\\Project0.DataInfrastructure.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

@@ -1,11 +1,14 @@
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\bin\Debug\net6.0\Project0.DataInfrastructure.deps.json
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\bin\Debug\net6.0\Project0.DataInfrastructure.dll
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\bin\Debug\net6.0\Project0.DataInfrastructure.pdb
+C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\bin\Debug\net6.0\Project0.Logic.dll
+C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\bin\Debug\net6.0\Project0.Logic.pdb
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.csproj.AssemblyReference.cache
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.AssemblyInfoInputs.cache
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.AssemblyInfo.cs
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.csproj.CopyComplete
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.dll
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\refint\Project0.DataInfrastructure.dll
 C:\Revature20220307\KevinL\Project0\Project0.DataInfrastructure\obj\Debug\net6.0\Project0.DataInfrastructure.pdb
