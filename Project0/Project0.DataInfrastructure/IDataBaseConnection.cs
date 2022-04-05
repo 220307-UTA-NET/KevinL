@@ -19,5 +19,7 @@ namespace Project0.DataInfrastructure
         List<Item> getItemId(string storeLocation);
 
         public List<Item> inventory(string storeLocation);
+
+        public void cartItems(int item);
     }
 }

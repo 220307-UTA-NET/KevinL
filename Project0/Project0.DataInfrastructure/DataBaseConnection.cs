@@ -106,43 +106,25 @@ namespace Project0.DataInfrastructure
         }
 
 
-
-
-       /*public int cartPrice(List<int> cart)
-        {
-            int cost = 0;
-            foreach (int i in cart)
-            {
-                string query = $"SELECT itemPrice FROM Item WHERE itemId = '{i}';";
-                SqlCommand cmd = new SqlCommand(query, connection);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    cost += Convert.ToInt32(dr[0].ToString());
-                }
-                int cartCost = cost;
-                return cartCost;
-            }
-        }*/
-
         //For the customer's shopping cart
         public void cartItems(int item)
         {
             using SqlConnection connect = new SqlConnection(this.source);
             connect.Open();
-            List<string> items = new List<string>();
-            string query = $"SELECT itemName, itemPrice FROM items WHERE itemId = '{item}';";
+            List<Item> items = new List<Item>();
+            string query = $"SELECT itemId, itemName, itemPrice, itemDescription, itemQuantity FROM items WHERE itemId = '{item}';";
             SqlCommand cmd = new SqlCommand(query, connect);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                items.Add(dr[0].ToString() + "\t" + dr[1].ToString());
+                int itemId = item;
+                string itemName = dr.GetString(1);
+                decimal itemPrice = dr.GetDecimal(2);
+                string itemDescription = dr.GetString(3);
+                int itemQuantity = dr.GetInt32(4);                
+                items.Add(new Item(itemId, itemName, itemPrice, itemDescription, itemQuantity));
             }
             dr.Close();
-            foreach (string i in items)
-            {
-                Console.WriteLine(i);
-            }
         }
 
         //Database for the past order of the certain location store
