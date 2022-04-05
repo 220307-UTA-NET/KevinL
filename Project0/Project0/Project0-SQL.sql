@@ -63,10 +63,70 @@ itemId INT FOREIGN KEY REFERENCES Items(itemId),
 itemQuantity INT
 );
 
+--Insert table of inventory
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,1,50);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,2,40);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,3,36);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,4,25);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,5,34);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,6,25);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,7,48);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,8,30);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,9,37);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,10,42);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(1,11,32);
+
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,1,45);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,2,43);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,3,27);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,4,25);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,5,31);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,6,27);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,7,48);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,8,26);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,9,34);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,10,36);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(2,11,28);
+
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,1,49);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,2,38);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,3,32);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,4,37);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,5,33);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,6,36);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,7,46);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,8,30);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,9,37);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,10,42);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(3,11,33);
+
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,1,38);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,2,40);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,3,36);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,4,28);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,5,33);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,6,35);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,7,46);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,8,27);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,9,35);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,10,36);
+INSERT INTO Inventory(storeLocationId, itemId, itemQuantity) VALUES(4,11,28);
+
 DROP TABLE Inventory
 
 SELECT * FROM Inventory INNER JOIN Locations ON Locations.storeLocationId = Inventory.storeLocationId INNER JOIN Items ON Items.itemId = Inventory.itemId WHERE storeLocation = 'Boston' ;
 
+
+--CREATE TABLE Shopping Cart
+CREATE TABLE ShoppingCart
+(
+customerId INT FOREIGN KEY REFERENCES Customers(customerId),
+itemId INT FOREIGN KEY REFERENCES Items(itemId),
+itemName NVARCHAR(25) NOT NULL,
+itemPrice DECIMAL(6,2) NOT NULL,
+itemDescription NVARCHAR(50) NOT NULL,
+itemQuantity INT
+);
 --
 CREATE TABLE PastOrders(
 lineId INT PRIMARY KEY IDENTITY,

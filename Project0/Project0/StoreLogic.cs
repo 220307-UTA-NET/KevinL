@@ -9,6 +9,11 @@ using System.Data.SqlClient;
 
 namespace Project0
 {
+    public static class Global
+    {
+        public static List<Item> cart = new List<Item>();
+        public static decimal totalCartPrice = 0.00M;
+    }
     public class StoreLogic
     {
         IDataBaseConnection connection;
@@ -25,6 +30,8 @@ namespace Project0
 
             do
             {
+                Global.cart.Clear();
+                Global.totalCartPrice = 0.00M;
                 Console.WriteLine("Select the number that what would you like to do:\n " +
                 "[1] Login [2] Register [3] View history [0] Exit");
                 string userFirstInput = Console.ReadLine();
@@ -205,7 +212,7 @@ namespace Project0
                 "[1] Washington D.C.\n [2] Philadelphia\n [3] New York City\n [4] Boston\n [0] Go back to the Main Menu");
 
                 string userStoreLocationInput = Console.ReadLine();
-                string storeLocation;
+                string storeLocation = "";
 
                 switch (userStoreLocationInput)
                 {
@@ -238,22 +245,25 @@ namespace Project0
                         Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 4)");
                         break;
                 }
-                this.shoppingCart();
+                this.shoppingCart(storeLocation);
 
             } while (!userSelectedStoreLocation);            
         }
 
         //User enters the shopping cart menu after choosing the store location
-        public void shoppingCart()
-        {         
+        public void shoppingCart(string storeLocation)
+        {   
             //The system shows the customer's shopping cart in order to allow the customer decide  
             Console.WriteLine("Your shopping cart contains: ");
-            this.connection.cartItems(int item);
-            List<Item> cart = new List<Item>();
+            foreach (Item item in Global.cart)
+            {
+                Console.WriteLine(item.GetItemId() + " " + item.GetItemName() + " " + item.GetItemPrice() + " " + item.GetItemDescription() + " " + item.GetItemQuantity());
+            }
+            //this.connection.cartItems(int item);
+            // List<Item> cart = new List<Item>();
             int totalItemCount = 0;
-            decimal totalCartPrice = 0.00M;
             List<Item> itemIdList = new List<Item>();
-            itemIdList = connection.getItemId(storeLocation);
+            //itemIdList = connection.getItemId(storeLocation);
 
             bool userShopping = true;
             do
@@ -268,34 +278,34 @@ namespace Project0
                 {
                     //User wants to add items in cart
                     case "1":
-                        addItemCart(totalItemCount, totalCartPrice);
+                        addItemCart(totalItemCount, Global.totalCartPrice, storeLocation);
                         break;
 
                     //User wants to remove items in cart
                     case "2":
-                        removeItemCart(totalItemCount, totalCartPrice);
+                        removeItemCart(totalItemCount, Global.totalCartPrice, storeLocation);
                         break;
 
                     //User wants to clear the shopping cart
                     case "3":
-                        cart.Clear();
+                        Global.cart.Clear();
                         totalItemCount = 0;
-                        totalCartPrice = 0.00M;
+                        Global.totalCartPrice = 0.00M;
                         break;
 
                     //Customer wants to checkout
                     case "4":
-                        checkout(totalItemCount, totalCartPrice);
+                        checkout(totalItemCount, Global.totalCartPrice, storeLocation);
                         userShopping = false;
                         break;
 
                     //Customer want to stop shop and got back to the main menu. Moreover, the shopping cart will clear.  
                     case "0":
                         mainMenu();
-                        cart.Clear();
+                        Global.cart.Clear();
                         userShopping = false;
                         totalItemCount = 0;
-                        totalCartPrice = 0.00M;
+                        Global.totalCartPrice = 0.00M;
                         break;
 
 
@@ -307,32 +317,36 @@ namespace Project0
         }
 
         //User wants to add an item
-        public void addItemCart(int totalItemCount, decimal totalCartPrice)
+        public void addItemCart(int totalItemCount, decimal totalCartPrice, string storeLocation)
         {
 
             //The system shows the inventory of the first in order to customer to add item 
-            this.connection.inventory(string storeLocation);
-            List<Item> inventory = new List<Item>();
-            int customerAddQuantity = 0;
+            List<Item> inventory = this.connection.inventory(storeLocation);
+            string customerAddQuantity;
             decimal customerItemQuantityPrice;
             decimal itemPrice = 0.00M;
             List<Item> itemIdList = new List<Item>();
-            itemIdList = connection.getItemId(this.shoppingCart());
+            foreach (Item item in inventory)
+            {
+                Console.WriteLine(item.GetItemId() + " " + item.GetItemName() + " " + item.GetItemPrice() + " " + item.GetItemDescription() + " " +item.GetItemQuantity());
+            }
+           
 
-            Console.WriteLine("Press the number that you want to add.");
+            Console.WriteLine("Press the number that you want to add.(0 to cancel and go back to the shopping cart menu)");
             string addItemId = Console.ReadLine();
-            int addItemIdConverted = ToInt32(addItemId);
+            int addItemIdConverted = Int32.Parse(addItemId);
 
             //If the user types incorrect input
             if(addItemIdConverted > 11 || addItemIdConverted < 0)
             {
                 Console.WriteLine("Invalid input! Please type the correct itemId number! (1 - 11) or 0 to go back to the shopping cart menu");
+                addItemCart(totalItemCount, totalCartPrice, storeLocation);
             }
 
-            //The user wants to wants to to go back to shopping cart menu
+            //The user wants to to go back to shopping cart menu
             else if(addItemId == "0")
             {
-                shoppingCart();
+                shoppingCart(storeLocation);
             }
 
             //The system asks the user if he user really want to add the selected item
@@ -348,31 +362,36 @@ namespace Project0
                     //The system asks how many does the customer asks.
                     Console.WriteLine("How many do you want to add?");
 
-                   // string customerAddQuantity = Console.ReadLine();
-                   int customerAddQuantityConverted = ToInt32(customerAddQuantity);
+                   customerAddQuantity = Console.ReadLine();
+                   int customerAddQuantityConverted = Int32.Parse(customerAddQuantity);
 
-
+                    //The system lets the customer up to 10 per each item quantity.
                     if (customerAddQuantityConverted <= 10)
                     {
                         customerItemQuantityPrice = customerAddQuantityConverted * itemPrice;
-                        totalCartPrice += customerItemQuantityPrice;
+                        Global.totalCartPrice += customerItemQuantityPrice;
                         totalItemCount += customerAddQuantityConverted;
+                        Item selecteditem = new Item(addItemIdConverted, inventory[addItemIdConverted-1].GetItemName(), inventory[addItemIdConverted-1].GetItemPrice(), inventory[addItemIdConverted-1].GetItemDescription(), customerAddQuantityConverted);
+                        Global.cart.Add(selecteditem);
                     }
 
-                    //The system lets the customer up to 10 per each item quantity.
+                    //The system won't let you take more than 10 per item.
                     else if (customerAddQuantityConverted > 10 || customerAddQuantityConverted < 0)
                     {
-                        Console.WriteLine("I'm sorry, but for now we can only accept up to 10 per item.");
+                        Console.WriteLine("I'm sorry, but for now we can only accept up to 10 per item for now.");
+                        addItemCart(totalItemCount, totalCartPrice, storeLocation);
                     }
                     else
                     {
                         Console.WriteLine("Invalid input! Please type numbers 1-10. Or type 0 to cancel the add");
+                        addItemCart(totalItemCount, totalCartPrice, storeLocation);
                     }
 
                 }
                 //The user doesn't wants to add an item
                 else if (addItems == "2")
                 {
+                    addItemCart(totalItemCount, totalCartPrice, storeLocation);
                 }
                 else
                 {
@@ -380,35 +399,76 @@ namespace Project0
                 }
             }          
 
-            shoppingCart();
+            shoppingCart(storeLocation);
         }
 
         //The user wants to remove an item
-        public void removeItemCart(int totalItemCount, decimal totalCartPrice)
+        public void removeItemCart(int totalItemCount, decimal totalCartPrice ,string storeLocation)
         {
 
             //The system shows the customer's shopping cart first in order to the user which item to remove 
-            
-            decimal itemPrice = 0.00M;
-            totalItemCount = 0;
+            Console.WriteLine("Your shopping cart contains: ");
+            foreach (Item item in Global.cart)
+            {
+                Console.WriteLine(item.GetItemId() + " " + item.GetItemName() + " " + item.GetItemPrice() + " " + item.GetItemDescription() + " " + item.GetItemQuantity());
+            }
+            totalItemCount = Global.cart.Count;
+            List<Item> itemIdList = new List<Item>();
 
             //Since there is no item in the shooping cart, the system won't let the user to proceed and send back to shopping cart menu 
             if (totalItemCount <= 0)
             {
                 Console.WriteLine("I'm sorry, since there is no item in your cart to remove, we will send back to the shopping cart menu");
-                shoppingCart();
+                shoppingCart(storeLocation);
+                
             }
 
             else
             {
-                Console.WriteLine("Press the itemId number that you want to remove.");
+                Console.WriteLine("Press the number that you want to remove.(0 to cancel and go back to the shopping cart menu)");
                 string removeItemId = Console.ReadLine();
-                int removeIntIdConvert = ToInt32(removeItemId);
+                int removeIntIdConverted = Int32.Parse(removeItemId);
 
-                //If there is no certain item on an cart or item itself does not exist or user types wrong input
-                if (removeIntIdConvert == null)
+                foreach (Item item in Global.cart)
                 {
-                    Console.WriteLine("Invalid Input! Plpease type the correct input!");
+                    Console.WriteLine(item.GetItemId() + " " + item.GetItemName() + " " + item.GetItemPrice() + " " + item.GetItemDescription() + " " + item.GetItemQuantity());
+
+                    if(item.GetItemId() == removeIntIdConverted)
+                    {
+                        Console.WriteLine("How many do you want to remove?");
+                        int customerRemoveItemQuantity = 0;
+                        int individualItemInCart = 0;
+                        customerRemoveItemQuantity = Int32.Parse(Console.ReadLine());
+                        if (item.GetItemQuantity() <= customerRemoveItemQuantity)
+                        {
+                            Console.WriteLine("There are no more item to remove!");
+                            Global.cart.Remove(item);
+                            shoppingCart(storeLocation);
+                        }
+                        else
+                        {
+
+                            item.SetItemQuantity(item.GetItemQuantity() - customerRemoveItemQuantity);
+                            /*Global.totalCartPrice -= customerRemoveItemQuantity * individualItemInCart;
+                            totalItemCount -= individualItemInCart;
+                            Item selecteditem = new Item(removeIntIdConverted, Global.cart[removeIntIdConverted - 1].GetItemName(), Global.cart[removeIntIdConverted - 1].GetItemPrice(), Global.cart[removeIntIdConverted - 1].GetItemDescription(), customerRemoveItemQuantity);
+                            Global.cart.Remove(selecteditem);*/
+                        }
+                            
+                    }
+                    else if(removeIntIdConverted == 0)
+                    {
+                        shoppingCart(storeLocation);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input! Please type the correct input!");
+                        removeItemCart(totalItemCount, totalCartPrice,  storeLocation);
+                    }
+                }
+               /* if (findId == null)
+                {
+                    Console.WriteLine("Invalid Input! Please type the correct input!");
                 }
 
                 //
@@ -425,28 +485,31 @@ namespace Project0
                     else 
                     {
                         Console.WriteLine("How many do you want to remove?");
-                        totalCartPrice -= customerRemoveItemQuantity * individualItemInCart;
+
+                        customerRemoveItemQuantity = Int32.Parse(Console.ReadLine());
+
+                        Global.totalCartPrice -= customerRemoveItemQuantity * individualItemInCart;
                         totalItemCount -= individualItemInCart;
+                        Item selecteditem = new Item(removeIntIdConverted, Global.cart[removeIntIdConverted - 1].GetItemName(), Global.cart[removeIntIdConverted - 1].GetItemPrice(), Global.cart[removeIntIdConverted - 1].GetItemDescription(), customerRemoveItemQuantity);
+                        Global.cart.Remove(selecteditem);
                     }
                     
-                }
+                }*/
                     
             }
             
-            shoppingCart();
+            shoppingCart(storeLocation);
         }
 
         //User enters to checkout menu 
-        public void checkout(int totalItemCount, decimal totalCartPrice)
+        public void checkout(int totalItemCount, decimal totalCartPrice, string storeLocation)
         {
-            totalItemCount = 0;
-            totalCartPrice = 0.00M;
 
             //If there is no item is the cart, the process will not let you proceed and send you back to shopping cart menu.
             if (totalItemCount == 0)
             {
                 Console.WriteLine("I'm sorry, we cannot proceed checkout without any item(s). We will send you back to shopping cart menu.");
-                shoppingCart();
+                shoppingCart(storeLocation);
             }
 
             //The customer wants to proceed to payment or not and go back to shooping cart menu to edit 
@@ -464,7 +527,7 @@ namespace Project0
 
                     //the customer wants to go back to the shopping cart menu and edit the shopping cart.
                     case "0":
-                        shoppingCart();
+                        shoppingCart(storeLocation);
                         break;
 
                     default:

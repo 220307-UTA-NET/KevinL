@@ -47,5 +47,14 @@ namespace Project0.Logic
             return this.itemQuantity;
         }
 
+        public static implicit operator Item(int v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetItemQuantity(int itemQuantity)
+        {
+            this.itemQuantity = itemQuantity;
+        }
     }
 }
