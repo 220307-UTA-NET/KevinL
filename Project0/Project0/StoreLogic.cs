@@ -439,7 +439,7 @@ namespace Project0
                         int customerRemoveItemQuantity = 0;
                         int individualItemInCart = 0;
                         customerRemoveItemQuantity = Int32.Parse(Console.ReadLine());
-                        if (item.GetItemQuantity() <= customerRemoveItemQuantity)
+                        if (item.GetItemQuantity() < customerRemoveItemQuantity)
                         {
                             Console.WriteLine("There are no more item to remove!");
                             Global.cart.Remove(item);
@@ -504,38 +504,44 @@ namespace Project0
         //User enters to checkout menu 
         public void checkout(int totalItemCount, decimal totalCartPrice, string storeLocation)
         {
-
-            //If there is no item is the cart, the process will not let you proceed and send you back to shopping cart menu.
-            if (totalItemCount == 0)
+            foreach (Item item in Global.cart)
             {
-                Console.WriteLine("I'm sorry, we cannot proceed checkout without any item(s). We will send you back to shopping cart menu.");
-                shoppingCart(storeLocation);
-            }
+                Console.WriteLine(item.GetItemId() + " " + item.GetItemName() + " " + item.GetItemPrice() + " " + item.GetItemDescription() + " " + item.GetItemQuantity());
 
-            //The customer wants to proceed to payment or not and go back to shooping cart menu to edit 
-            else
-            {
-                Console.WriteLine("Would you like to proceed to pay?\n [1]Yes\n [0]No and go back to shopping cart menu");
-                string proceedPayment = Console.ReadLine();
 
-                switch (proceedPayment)
+                //If there is no item is the cart, the process will not let you proceed and send you back to shopping cart menu.
+                if (item.GetItemQuantity() == 0)
                 {
-                    //The customer wants to proceed to the payment
-                    case "1":
-                        purchase();
-                        break;
+                    Console.WriteLine("I'm sorry, we cannot proceed checkout without any item(s). We will send you back to shopping cart menu.");
+                    shoppingCart(storeLocation);
+                }
 
-                    //the customer wants to go back to the shopping cart menu and edit the shopping cart.
-                    case "0":
-                        shoppingCart(storeLocation);
-                        break;
+                //The customer wants to proceed to payment or not and go back to shooping cart menu to edit 
+                else
+                {
+                    Console.WriteLine("Would you like to proceed to pay?\n [1]Yes\n [0]No and go back to shopping cart menu");
+                    string proceedPayment = Console.ReadLine();
 
-                    default:
-                        Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 1)");
-                        break;
+                    switch (proceedPayment)
+                    {
+                        //The customer wants to proceed to the payment
+                        case "1":
+                            purchase();
+                            break;
 
+                        //the customer wants to go back to the shopping cart menu and edit the shopping cart.
+                        case "0":
+                            shoppingCart(storeLocation);
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid input! Please Select one of the numbers! (0 - 1)");
+                            break;
+
+                    }
                 }
             }
+            
         }
 
         //The process of purchase.
