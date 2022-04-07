@@ -150,6 +150,9 @@ namespace Project0
                         Customer customer = new Customer();
                         customer.customerHistoryPurchase(customerId);
                         Console.WriteLine();
+                        //DataBaseConnection dbcustomer = new DataBaseConnection(source);
+                        //dbcustomer.getCustomerOrder(customerId);
+
                         break;
 
                     //User wants to watch the history of the certain store location 
@@ -159,6 +162,8 @@ namespace Project0
                         Location location = new Location();
                         location.locationHistoryPurchase(storeLocationId);
                         Console.WriteLine();
+                        //DataBaseConnection dbstore = new DataBaseConnection(source);
+                        //dbstore.getStoreOrder(storeLocationId);
                         break;
 
                     //If the user wants to go back to the first menu
@@ -568,6 +573,7 @@ namespace Project0
                     Console.WriteLine($"Paymentaccepted.\nHere is your change: {change}\n");
                     customerPaid = true;
                     mainMenu();
+
                 }
                 else
                 {
