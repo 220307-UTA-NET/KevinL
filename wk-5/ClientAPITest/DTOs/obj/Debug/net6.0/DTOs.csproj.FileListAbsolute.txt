@@ -1,0 +1,12 @@
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\bin\Debug\net6.0\DTOs.deps.json
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\bin\Debug\net6.0\DTOs.dll
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\bin\Debug\net6.0\DTOs.pdb
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.csproj.AssemblyReference.cache
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfoInputs.cache
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.AssemblyInfo.cs
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.csproj.CoreCompileInputs.cache
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.dll
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\refint\DTOs.dll
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\DTOs.pdb
+C:\Revature20220307\KevinL\wk-5\ClientAPITest\DTOs\obj\Debug\net6.0\ref\DTOs.dll
