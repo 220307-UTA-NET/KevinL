@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.ConApp\\DemoApp.ConApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.ConApp\\DemoApp.ConApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.ConApp\\DemoApp.ConApp.csproj",
+        "projectName": "DemoApp.ConApp",
+        "projectPath": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.ConApp\\DemoApp.ConApp.csproj",
+        "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.ConApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\DemoApp.UI.csproj": {
+                "projectPath": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\DemoApp.UI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\DemoApp.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\DemoApp.UI.csproj",
+        "projectName": "DemoApp.UI",
+        "projectPath": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\DemoApp.UI.csproj",
+        "packagesPath": "C:\\Users\\klee5\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature20220307\\KevinL\\wk-6\\DemoApp.ConApp\\DemoApp.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\klee5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

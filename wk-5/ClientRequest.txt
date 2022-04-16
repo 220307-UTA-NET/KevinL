@@ -1,0 +1,34 @@
+//Client request
+
+GET /todos/1 HTTP/1.1
+User-Aget: Mozilla/4.0
+Host: jsonplaceholder.typicode.com
+Accept-Language:en-us
+Accept-encoding: gzip, deflate
+Connection: Keep-Alive
+
+//Response Body
+
+
+
+//Server Response
+
+HTTP/1.1 200 OK
+Date: Thrusday, 07 Apr 2022 16:32:48 GMT
+Server: Apache/2.2.14
+Last-Modified: Wednesday, 22 July 2009 18:36:54 GMT
+Content-Length: 88
+Context-Type: text/html
+
+//Connection:Closed
+
+//Response Body
+
+<html>
+    <body>
+        <h1>Hello, World!</h1>
+    </body>
+</html>
+
+jsonplaceholder.typicode.com/todos/1
+
