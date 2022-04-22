@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <!-- this is a comment in html -->
+    <!-- HTML is teh structure of a webpage, and is made up of elements.
+    Elements are denoted by a tag, which wraps teh content of the element. -->
+   
+    <head>
+        <!-- the head of a html document is where we find the <meta> tags, that carry metadata about our page -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>myFirstHTML</title>
+        <!-- the <title> tag let us change the title of the browser tab -->
+
+        <link rel="stylesheet" href="./main.css">
+        <!-- the link tag allows us to reference other resources for he page, including external styling. -->
+    </head> <!-- Don't forget to close your tags! -->
+
+    <body>
+        <p>now we should see a live update!</p>
+        we can simply dump raw text into the body, or into an element to contain it.
+        <!-- html generally ignores whitespace like line breaks -->
+        but it's better to use elements to contain your text.
+        <br> <!-- this is a line-break tag!! -->
+        
+        <!-- there is a heirarchy of styling applied to our elements. -->
+        <!-- anything with the <p> tag but no other styling will get this applied to it.-->
+        <style>
+            p {
+                /* Now that i'm working with the <style> tags, i'm writing in CSS, a completely different language from HTML.
+                CSS is a language that describes how to style your page.
+                */
+
+                /* tag selector - this allows us to target a type of element by the tag we use in HTML*/
+                color:orange
+            }
+
+            .class{ /*class style overrides tag style*/
+                /* class selector - this allows us to target a type of element by the class we use in HTML*/
+                background-color:#0000ff;
+                color:#000000;
+            }
+
+            #thisthing{ /*id style overrides class style*/
+                /* id selector - this allows us to target a specific element by the id we use in HTML*/
+                background-color:#ff0000;
+                color:#ffffff;
+            }
+        </style>
+
+        <br>
+
+        <div>
+            <p id="boxmodel">This is our box model object.</p>
+        </div>
+
+        <p style="color:blue;"> <!-- tag/element level styling will apply to everything wrapped in it. -->
+            Now at least I have a new line!<br>
+            Now anything in this paragraph will also have the same styling applied.<br>
+            How can I apply styling to a single line or a portion of an element without having to affect the whole thing?<br>
+            <span style="color:red; font-size:12px">What if I want this line to be red?</span><br>
+            <!-- span/inline styling allows us to override any element styling. -->
+            <span style="font-size:12pt">And I want this line to resume the same style as above.</span><br>
+            <span style="font-size:1em">And I want this line to resume the same style as above.</span><br>
+        </p>   
+        <br>
+        <br>
+        <div class="class" >
+            Div elements are used to contain other elemets, and group them together.
+        </div>
+        <br>
+        <div class="class" id="thisthing">
+            This is a different div element, with other elements inside of it.
+            <p>This is a paragraph within a div!</p>
+            <h6>And here is a heading within the same one!</h6>
+
+        </div>
+
+        <h1>Hello World!</h1>
+        <h2>This is an h2 element.</h2>
+        <h3>This is an h3 element.</h3>
+        <p>Hello Again! </p>
+        see the difference?
+        <a href = "https://www.google.com">This is a Google Link!</a>
+        <!-- Tags can be used to wrap multiple elements (like head and body), 
+            or they can wrap a single element to add functionality or structure 
+            (like an image with a hyperlink) -->
+
+        <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" height="200" width="200" alt="the dotnet logo">
+        </a>
+
+        <div>
+            <p>
+                This paragraph will be our example of some different text formatting that we can do with HTML.
+                <br>
+                This will be <i>inalicized</i>. you can alsouse the "em" tag to make things inalicized.
+                <br>
+                We can make text <strong>bold</strong> byusingthe "strong" tag.
+                <br>
+                This is an <abbr title = "Federal Bureau of Investigation">FBI</abbr>
+                <br>
+                We can add <code>code</code> to our page using the "code"
+            </p>
+        </div>  
+        
+        <div>
+            <h2> Structural Elements </h2>
+            <p> html can support different structures, like tables and lists too! </p>
+
+            <h3>Unordered List</h3>
+            <p> there are a couple of different list elements in html, let's start with an unordered list</p>
+            <ul>
+                <li>the<code>&lt;ul</code> tag - for unordered lists </li>
+                <li>the<code>&lt;ol</code> tag - for ordered lists </li>
+                <li>the<code>&lt;dl</code> tag - for description lists </li>
+            </ul>
+            <p>the ul and ol tags both use the <code>&lt;li</code> tag to list their items. </p>
+            <p>the dl tag uses the <code>&lt;dl</code> tag for the terms, and the <code>&lt;dd</code> tag for </p>
+
+            <h3>Ordered List</h3>
+            <ol>
+                <li>first</li>
+                <li>second</li>
+            </ol>
+
+            <h3>Tables</h3>
+            <p> tables are acommon way to give an html page structure as well!</p>
+            <ul>
+                <li>the <code>&lt;table&gt;</code> tag - creates the table</li>
+                <li>the <code>&lt;caption&gt;</code> tag - to list a caption for the table</li>
+                <li>the <code>&lt;thead&gt;</code> tag - to specify the content of the header row</li>
+                <li>the <code>&lt;tr&gt;</code> tag - to specifies the new row</li>
+                <li>the <code>&lt;th&gt;</code> tag - to specify the content of a header call</li>
+                <li>the <code>&lt;td&gt;</code> tag - to specify the content of a cell in the body</li>
+            </ul>
+
+            <table>
+                <caption>some caption goes here!</caption>
+                <thead>
+                    <tr>
+                        <th>header 1</th>
+                        <th>header 2</th>
+                        <th>header 3</th>
+                        <th>header 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                        <td>cell 4</td>
+                    </tr>
+                    <tr>
+                        <td>cell 1</td>
+                        <td>cell 2</td>
+                        <td>cell 3</td>
+                        <td>cell 4</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>footer 1</td>
+                        <td>footer 2</td>
+                        <td>footer 3</td>
+                        <td>footer 4</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div>
+            <p>
+                <!-- New elements added to HTML 5-->
+               "HTML 5 added some new things for us to play with! including main, article section,
+               header, footer,aside, nav, audio, video and canvas elements!" 
+                <main></main>
+                <article></article>
+                <section></section>
+                <header></header>
+            </p>
+        </div>
+
+        <div>
+            <h1>Forms</h1>
+            <p>forms are a great way to collect information from users!</p>
+            <p>forms submit data to some URL, they can have various inputs, and some way to "submit"</p>
+
+            <form action = "https://www.google.com/search" method = "get" target = "blank">
+                <input type = "text" name = "q">
+                <input type = "sumbit">
+            </form>
+
+            <form action = "#" method = "post">
+                <label for = "firstname">First Name:</label>
+                <input type = "text" name = "firstname" id = "firstname">
+                <!-- name is the name of the data that is sent to the server -->
+                <!--id is the name of the element within the HTML page-->
+
+                <label>
+                    Last Name:
+                    <input type = "text" name = "lastname" required maxlength = "10">   
+                    <!-- required - it must be filled in before submitting, empty string not accepted-->
+                    <!-- maxlength -  is the maximum length allowed-->
+                    </label>
+                    <br>
+                    <input type = "number" name = "age" placeholder = "Age">
+                    <br>
+                    <!-- it's a checkbox-->
+                    <input type = "checkbox">
+                    <br>
+                    <!-- password hides the user input -->
+                    <input type = "password">
+                    <!-- select lets us create a dropdown menu -->
+                    <select name = "city">
+                        <option value = "Washington D.C">Washington D.C</option>
+                        <option value = "Philadelphia">Philadelphia</option>
+                        <option value = "NYC">New York</option>
+                        <option value = "Boston">Boston</option>
+                    </select>
+                    <br>
+                    <textarea></textarea>
+                    <br>
+                    <input type = "datetime-local">
+                    <br>
+                    <input type = "color">
+                    <br>
+                    <input type = "range">
+                    <br>
+                    <input type = "file">
+                    <br>
+                    <input type = "submit">
+            </form>
+
+
+        </div>
+    </body>  
+</html>
+
